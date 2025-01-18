@@ -32,6 +32,10 @@ app.use(
     })
 );
 
+app.get('/', (req, res) => {
+    res.send('Сервер работает!');
+});
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -40,4 +44,4 @@ app.use('/auth/admin', adminRouter);
 app.use('/recipes', recipeRouter);
 app.use('/uploads', express.static('uploads'));
 
-app.listen(PORT, () => console.log(`Server run on port ${PORT}!`));
+app.listen(PORT, '0.0.0.0', () => console.log(`Server run on port ${PORT}!`));
